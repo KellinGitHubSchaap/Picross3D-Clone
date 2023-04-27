@@ -1,0 +1,77 @@
+[gd_scene load_steps=24 format=3 uid="uid://caux667hnh45n"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/DisplayBlockValue.gd" id="1_woxb0"]
+[ext_resource type="Material" uid="uid://dxhrjqmi8pnic" path="res://Assets/Materials/Numbers/Regular Numbers/M_Number_Zero.tres" id="2_cqwap"]
+[ext_resource type="Material" uid="uid://bm8hb5jrd8c20" path="res://Assets/Materials/Numbers/Regular Numbers/M_Number_One.tres" id="3_sxylk"]
+[ext_resource type="Material" uid="uid://b5u6jywkenw5r" path="res://Assets/Materials/Numbers/Regular Numbers/M_Number_Two.tres" id="4_snubd"]
+[ext_resource type="Material" uid="uid://dqaf7egk7fma1" path="res://Assets/Materials/Numbers/Regular Numbers/M_Number_Three.tres" id="5_8crfu"]
+[ext_resource type="Material" uid="uid://jvhwviib6tru" path="res://Assets/Materials/Numbers/Regular Numbers/M_Number_Four.tres" id="6_1hgyp"]
+[ext_resource type="Material" uid="uid://cfinef0opjxrx" path="res://Assets/Materials/Numbers/Regular Numbers/M_Number_Five.tres" id="7_gk6ir"]
+[ext_resource type="Material" uid="uid://w2fpfonou4iy" path="res://Assets/Materials/Numbers/Regular Numbers/M_Number_Six.tres" id="8_lq33w"]
+[ext_resource type="Material" uid="uid://bosaenwd2un1g" path="res://Assets/Materials/Numbers/Regular Numbers/M_Number_Seven.tres" id="9_8omwp"]
+[ext_resource type="Material" uid="uid://cm21k110ca7bw" path="res://Assets/Materials/Numbers/Regular Numbers/M_Number_Eight.tres" id="10_giqbd"]
+[ext_resource type="PackedScene" uid="uid://2xbhyjf24huj" path="res://Assets/Particles/P_BlockBreaks.tscn" id="11_xfw86"]
+[ext_resource type="Material" uid="uid://bc4utb0jhi0xs" path="res://Assets/Materials/Numbers/Circle Numbers/M_Circle_Number_Three.tres" id="12_5mres"]
+[ext_resource type="Material" uid="uid://cp81a2f0mbtlc" path="res://Assets/Materials/Numbers/Circle Numbers/M_Circle_Number_Eight.tres" id="12_78iij"]
+[ext_resource type="Material" uid="uid://gn04sn8gohvc" path="res://Assets/Materials/Numbers/Circle Numbers/M_Circle_Number_Two.tres" id="12_ca0iu"]
+[ext_resource type="Material" uid="uid://c7d6ndsnuvd4x" path="res://Assets/Materials/Numbers/Circle Numbers/M_Circle_Number_Four.tres" id="13_vyg4p"]
+[ext_resource type="Material" uid="uid://ulwqc8h6fkve" path="res://Assets/Materials/Numbers/Circle Numbers/M_Circle_Number_Five.tres" id="14_ntx0r"]
+[ext_resource type="Material" uid="uid://do22yuyj1kdm3" path="res://Assets/Materials/Numbers/Circle Numbers/M_Circle_Number_Six.tres" id="15_jd76f"]
+[ext_resource type="Material" uid="uid://jy6ilx8n2epf" path="res://Assets/Materials/Numbers/Circle Numbers/M_Circle_Number_Seven.tres" id="16_vlvhe"]
+[ext_resource type="Material" uid="uid://frltkmyfm02b" path="res://Assets/Materials/M_Empty.tres" id="19_xy5tm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7si0k"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="1"]
+
+[sub_resource type="ConcavePolygonShape3D" id="4"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="QuadMesh" id="QuadMesh_83ctw"]
+
+[node name="BreakableBlock" type="MeshInstance3D" groups=["DestroyableBlock"]]
+material_override = SubResource("StandardMaterial3D_7si0k")
+mesh = SubResource("1")
+skeleton = NodePath("")
+script = ExtResource("1_woxb0")
+_numberMaterials = [ExtResource("2_cqwap"), ExtResource("3_sxylk"), ExtResource("4_snubd"), ExtResource("5_8crfu"), ExtResource("6_1hgyp"), ExtResource("7_gk6ir"), ExtResource("8_lq33w"), ExtResource("9_8omwp"), ExtResource("10_giqbd")]
+_circleNumberMaterials = [ExtResource("2_cqwap"), ExtResource("12_ca0iu"), ExtResource("12_5mres"), ExtResource("13_vyg4p"), ExtResource("14_ntx0r"), ExtResource("15_jd76f"), ExtResource("16_vlvhe"), ExtResource("12_78iij")]
+_destroyParticleEffect = ExtResource("11_xfw86")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("4")
+
+[node name="Faces" type="Node3D" parent="."]
+
+[node name="NegX" type="MeshInstance3D" parent="Faces"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.505, 0, 5.96046e-08)
+material_override = ExtResource("19_xy5tm")
+mesh = SubResource("QuadMesh_83ctw")
+
+[node name="PosX" type="MeshInstance3D" parent="Faces"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.505, 0, 5.96046e-08)
+material_override = ExtResource("19_xy5tm")
+mesh = SubResource("QuadMesh_83ctw")
+
+[node name="NegY" type="MeshInstance3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.96046e-08, -0.505, 5.96046e-08)
+material_override = ExtResource("19_xy5tm")
+mesh = SubResource("QuadMesh_83ctw")
+
+[node name="PosY" type="MeshInstance3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.96046e-08, 0.505, 5.96046e-08)
+material_override = ExtResource("19_xy5tm")
+mesh = SubResource("QuadMesh_83ctw")
+
+[node name="NegZ" type="MeshInstance3D" parent="Faces"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.505)
+material_override = ExtResource("19_xy5tm")
+mesh = SubResource("QuadMesh_83ctw")
+
+[node name="PosZ" type="MeshInstance3D" parent="Faces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.505)
+material_override = ExtResource("19_xy5tm")
+mesh = SubResource("QuadMesh_83ctw")

@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://Assets/Scripts/PointNClick.gd" id="1_aq1un"]
+[ext_resource type="Script" path="res://Assets/Scripts/Builder.gd" id="2_24fwy"]
+[ext_resource type="PackedScene" uid="uid://caux667hnh45n" path="res://Assets/Models/BreakableBlock.tscn" id="3_5cp0o"]
+[ext_resource type="PackedScene" uid="uid://6e1cf585ngk2" path="res://Assets/Models/UnbreakableBlock.tscn" id="4_yhva7"]
+
+[sub_resource type="Environment" id="Environment_2xkky"]
+background_mode = 1
+background_color = Color(0.345098, 0.478431, 0.533333, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("_toolDescriptor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+environment = SubResource("Environment_2xkky")
+current = true
+fov = 50.0
+script = ExtResource("1_aq1un")
+_dragSensitivity = 5.0
+_zoomStrength = 150.0
+_toolDescriptor = NodePath("../Control/Label")
+
+[node name="Holder X Rotation" type="Node3D" parent="."]
+
+[node name="Holder Y Rotation" type="Node3D" parent="Holder X Rotation"]
+script = ExtResource("2_24fwy")
+_breakableBlocks = ExtResource("3_5cp0o")
+_dimensions = Vector3(5, 5, 1)
+
+[node name="UnbreakableBlock" parent="Holder X Rotation/Holder Y Rotation" instance=ExtResource("4_yhva7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="UnbreakableBlock2" parent="Holder X Rotation/Holder Y Rotation" instance=ExtResource("4_yhva7")]
+
+[node name="UnbreakableBlock3" parent="Holder X Rotation/Holder Y Rotation" instance=ExtResource("4_yhva7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="UnbreakableBlock8" parent="Holder X Rotation/Holder Y Rotation" instance=ExtResource("4_yhva7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+
+[node name="UnbreakableBlock11" parent="Holder X Rotation/Holder Y Rotation" instance=ExtResource("4_yhva7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
+
+[node name="UnbreakableBlock12" parent="Holder X Rotation/Holder Y Rotation" instance=ExtResource("4_yhva7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, 0)
+
+[node name="UnbreakableBlock16" parent="Holder X Rotation/Holder Y Rotation" instance=ExtResource("4_yhva7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="UnbreakableBlock17" parent="Holder X Rotation/Holder Y Rotation" instance=ExtResource("4_yhva7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 0)
+
+[node name="UnbreakableBlock19" parent="Holder X Rotation/Holder Y Rotation" instance=ExtResource("4_yhva7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 594.0
+offset_right = 339.0
+offset_bottom = 620.0
+text = "Current Selection: "
+vertical_alignment = 1

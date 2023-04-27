@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://gn04sn8gohvc"]
+
+[ext_resource type="Texture2D" uid="uid://dxmlvv80mhu5t" path="res://Assets/Textures/T_CricleNumbers.png" id="1_25cnq"]
+
+[resource]
+albedo_texture = ExtResource("1_25cnq")
+uv1_scale = Vector3(0.144, 1.02, 1)
+uv1_offset = Vector3(0, -0.01, 0)
+texture_filter = 0

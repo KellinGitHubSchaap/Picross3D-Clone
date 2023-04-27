@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cfinef0opjxrx"]
+
+[ext_resource type="Texture2D" uid="uid://cfatsje4ahvyp" path="res://Assets/Textures/T_Numbers.png" id="1_fgqmf"]
+
+[resource]
+albedo_texture = ExtResource("1_fgqmf")
+uv1_scale = Vector3(0.112, 1.02, 1)
+uv1_offset = Vector3(0.555, -0.01, 0)
+texture_filter = 0

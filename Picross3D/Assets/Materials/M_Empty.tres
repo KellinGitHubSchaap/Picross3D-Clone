@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://frltkmyfm02b"]
+
+[ext_resource type="Texture2D" uid="uid://dx21qkatdsnbs" path="res://Assets/Textures/T_EmptyFace.png" id="1_tvuek"]
+
+[resource]
+albedo_texture = ExtResource("1_tvuek")
+texture_filter = 0

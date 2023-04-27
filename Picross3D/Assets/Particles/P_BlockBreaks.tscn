@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://2xbhyjf24huj"]
+
+[ext_resource type="Script" path="res://Assets/Particles/DestroyParticle.gd" id="1_ouciq"]
+
+[sub_resource type="Gradient" id="Gradient_qsi4j"]
+offsets = PackedFloat32Array(0.504065, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2lw1m"]
+gradient = SubResource("Gradient_qsi4j")
+
+[sub_resource type="Curve" id="Curve_end1l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hr4i2"]
+curve = SubResource("Curve_end1l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bmfpc"]
+lifetime_randomness = 0.5
+spread = 180.0
+gravity = Vector3(0, -1.5, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.5
+scale_min = 0.3
+scale_max = 0.4
+scale_curve = SubResource("CurveTexture_hr4i2")
+color_ramp = SubResource("GradientTexture1D_2lw1m")
+
+[sub_resource type="BoxMesh" id="BoxMesh_idv2u"]
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_bmfpc")
+draw_pass_1 = SubResource("BoxMesh_idv2u")
+script = ExtResource("1_ouciq")
+_timeTillSelfDestroy = 500.0
